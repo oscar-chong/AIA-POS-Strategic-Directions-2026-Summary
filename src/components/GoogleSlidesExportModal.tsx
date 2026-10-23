@@ -49,8 +49,13 @@ export const GoogleSlidesExportModal: React.FC<GoogleSlidesExportModalProps> = (
     try {
       await downloadPptxInBrowser();
     } catch (err) {
-      console.error(err);
-      window.location.href = '/AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx';
+      console.error('Client PPTX generation fallback:', err);
+      const link = document.createElement('a');
+      link.href = '/AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx';
+      link.setAttribute('download', 'AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } finally {
       setIsDownloadingPptx(false);
     }

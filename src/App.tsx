@@ -20,7 +20,7 @@ export default function App() {
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [isNotesOpen, setIsNotesOpen] = useState<boolean>(false);
   const [isIndexOpen, setIsIndexOpen] = useState<boolean>(false);
-  const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(true);
+  const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [isPrintMode, setIsPrintMode] = useState<boolean>(false);
 

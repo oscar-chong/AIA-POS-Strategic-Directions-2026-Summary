@@ -52,9 +52,14 @@ export const Header: React.FC<HeaderProps> = ({
     try {
       await downloadPptxInBrowser();
     } catch (err) {
-      console.error('Client PPTX generation error:', err);
-      // Fallback to static direct file download link
-      window.location.href = '/AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx';
+      console.error('Client PPTX generation error, using fallback:', err);
+      // Safe fallback download without iframe navigation
+      const link = document.createElement('a');
+      link.href = '/AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx';
+      link.setAttribute('download', 'AIA_HK_POS_Operations_Strategy_and_Innovation_Deck.pptx');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } finally {
       setIsDownloading(false);
     }
