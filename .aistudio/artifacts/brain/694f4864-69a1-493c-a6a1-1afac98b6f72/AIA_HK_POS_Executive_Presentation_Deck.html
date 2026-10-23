@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIA HK Policy Owner Services — Operations Strategy & Innovation Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --aia-crimson: #D31145;
+      --navy-deep: #0B192C;
+      --slate-dark: #1E293B;
+      --slate-muted: #64748B;
+      --bg-canvas: #F1F5F9;
+      --bg-card: #FFFFFF;
+      --border-card: #CBD5E1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Public Sans', system-ui, sans-serif;
+      background: var(--bg-canvas);
+      color: #0F172A;
+      line-height: 1.4;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .deck-header {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .deck-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--aia-crimson);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-aia {
+      background: var(--aia-crimson);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .slide-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .slide-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #D31145 0%, #9F0D34 100%);
+    }
+    .slide-meta {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--slate-muted);
+      margin-bottom: 16px;
+    }
+    .slide-meta strong {
+      color: var(--aia-crimson);
+    }
+    .slide-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .slide-subtitle {
+      font-size: 13px;
+      color: #475569;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .metric-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+    .metric-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .metric-sub {
+      font-size: 10px;
+      color: var(--slate-muted);
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .pillar-box {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .pillar-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--aia-crimson);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .pillar-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .pillar-desc {
+      font-size: 11px;
+      color: #475569;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .pillar-bullets {
+      list-style-type: none;
+    }
+    .pillar-bullets li {
+      font-size: 11px;
+      color: #1E293B;
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 14px;
+      line-height: 1.4;
+    }
+    .pillar-bullets li::before {
+      content: "•";
+      color: var(--aia-crimson);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .workflow-box {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    .workflow-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #F43F5E;
+      margin-bottom: 8px;
+    }
+    .workflow-content {
+      font-size: 11px;
+      color: #E2E8F0;
+      line-height: 1.5;
+    }
+    .speaker-notes-box {
+      background: #F8FAFC;
+      border-left: 3px solid var(--aia-crimson);
+      padding: 10px 14px;
+      margin-top: 16px;
+      border-radius: 0 6px 6px 0;
+      font-size: 11px;
+      color: #475569;
+    }
+    .speaker-notes-box strong {
+      color: #0F172A;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .deck-header { display: none; }
+      .slide-card { box-shadow: none; border: 1px solid #ddd; margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="deck-header">
+    <div class="deck-title">
+      <span class="badge-aia">AIA</span>
+      <span>Policy Owner Services — Operations Strategy & Innovation Presentation (18 Slides)</span>
+    </div>
+    <div style="font-size: 12px; color: #475569; font-family: monospace;">
+      AIA Hong Kong · 2026–2028 Strategic Horizon
+    </div>
+  </div>
+
+  <!-- SLIDE 1 -->
+  <div class="slide-card">
+    <div class="slide-accent"></div>
+    <div class="slide-meta">
+      <span><strong>SECTION 01</strong> · OVERALL STRATEGY</span>
+      <span>AIA HONG KONG POS · SLIDE 01/18</span>
+    </div>
+    <h2 class="slide-title">AIA Hong Kong Policy Owner Services (POS)</h2>
+    <p class="slide-subtitle">Operations Strategy, 2026–2028 Functional Priorities & Innovation Roadmap</p>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="metric-val">3 Pillars</div><div class="metric-lbl">Strategic Alignment</div><div class="metric-sub">Resilience · Wellbeing · Ownership</div></div>
+      <div class="metric-box"><div class="metric-val">6 Domains</div><div class="metric-lbl">Functional Scope</div><div class="metric-sub">BAU · Auto · Gov · HNW · BP · Cashier</div></div>
+      <div class="metric-box"><div class="metric-val">18+</div><div class="metric-lbl">Digital Initiatives</div><div class="metric-sub">2026–2028 Multi-Year Plan</div></div>
+      <div class="metric-box"><div class="metric-val">~30 APIs</div><div class="metric-lbl">Microservices Core</div><div class="metric-sub">IBM Modernization Build</div></div>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-box">
+        <div class="pillar-kicker">Operational Mandate</div>
+        <div class="pillar-heading">Executive Strategic Direction</div>
+        <p class="pillar-desc">Positioning AIA Hong Kong Policy Owner Services as a high-performing, digitally connected, and risk-resilient operations powerhouse.</p>
+        <ul class="pillar-bullets">
+          <li>Strengthening operational resilience through proactive employee decision-making and sustainable workload management.</li>
+          <li>Accelerating end-to-end customer and agent turnaround times across digital channels (AIA+, iChange, iVerify).</li>
+          <li>Institutionalizing enterprise governance across Anti-Money Laundering (AML), Common Reporting Standard (CRS 2.0), and IRD audits.</li>
+        </ul>
+      </div>
+      <div class="pillar-box">
+        <div class="pillar-kicker">Roadmap Cadence</div>
+        <div class="pillar-heading">Three-Year Transformation Horizon</div>
+        <p class="pillar-desc">Multi-stage evolution from foundational BAU simplification in 2026 to automated microservices and GenAI servicing in 2027–2028.</p>
+        <ul class="pillar-bullets">
+          <li>2026 Foundations: Witness signature streamlining, MonQ HNW SLA rollout, lockbox transition, and mandatory e-advice.</li>
+          <li>2027 Accelerations: IBM microservices API deployment (~30 integrations), Nice Actimize GenAI AML, and 2-week FPS Autopay.</li>
+          <li>2028 Horizons: CRS 2.0 full reporting mandate, extended GenAI transaction review modules, and stablecoin payment readiness.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="workflow-box">
+      <div class="workflow-title">OPERATIONAL TIMELINE & MILESTONES: 2026–2028 HORIZON</div>
+      <div class="workflow-content">
+        [2026 H1–H2] Operational Streamlining: MonQ HNW launch, e-Advice rollout, IRD 700 audit response, and Citibank lockbox migration.<br>
+        [2027 Q1] GenAI AML & Core Modernization: Nice Actimize Name Screening with GenAI decision support; IBM ~30 microservices API build.<br>
+        [2027 H2] Payment Acceleration: CitiDirect & FPS Autopay (2-week turnaround), Project Bamboo AIAE portfolio transfer.<br>
+        [2028 Jan 1] CRS 2.0 Statutory Reporting Regime: Full regulatory compliance with tightened OECD Common Reporting Standard reporting framework.
+      </div>
+    </div>
+    <div class="speaker-notes-box">
+      <strong>Speaker Notes:</strong> Welcome executive leadership. This deck encapsulates our comprehensive operational agenda for AIA HK Policy Owner Services, covering people resilience, systems automation, and rigorous governance.
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide-card">
+    <div class="slide-accent"></div>
+    <div class="slide-meta">
+      <span><strong>SECTION 01</strong> · OVERALL STRATEGY</span>
+      <span>AIA HONG KONG POS · SLIDE 02/18</span>
+    </div>
+    <h2 class="slide-title">Operations Overall Strategy: Three Core Pillars</h2>
+    <p class="slide-subtitle">Strengthening Change Resilience, Sustainable Workload, and Cross-Team Accountability</p>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="metric-val">3 Pillars</div><div class="metric-lbl">Focus Areas</div><div class="metric-sub">Resilience · Wellbeing · Accountability</div></div>
+      <div class="metric-box"><div class="metric-val">Quarterly</div><div class="metric-lbl">Workload Reviews</div><div class="metric-sub">Proactive stress & capacity audits</div></div>
+      <div class="metric-box"><div class="metric-val">-35%</div><div class="metric-lbl">Rework Reduction</div><div class="metric-sub">Fewer avoidable pending cycles</div></div>
+      <div class="metric-box"><div class="metric-val">Real-Time</div><div class="metric-lbl">Escalation Flow</div><div class="metric-sub">Early impediment notification</div></div>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-box">
+        <div class="pillar-kicker">People & Adaptability</div>
+        <div class="pillar-heading">Strengthen Change Resilience & Wellbeing</div>
+        <p class="pillar-desc">Empower frontline staff to understand priorities, contribute improvement ideas, make confident decentralized decisions, and adapt calmly to system shifts.</p>
+        <ul class="pillar-bullets">
+          <li>Regularly review workloads, set realistic delivery priorities, and encourage early escalation of processing bottlenecks.</li>
+          <li>Support employee mental wellbeing and provide dedicated recovery periods post major regulatory cycles.</li>
+          <li>Demystify technological shifts (IBM microservices, GenAI) through transparent milestone communications.</li>
+        </ul>
+      </div>
+      <div class="pillar-box">
+        <div class="pillar-kicker">Cross-Functional Ownership</div>
+        <div class="pillar-heading">Enhance Collaboration & Accountability</div>
+        <p class="pillar-desc">Eliminating functional silos between POS operations, agency distribution, legal/compliance, IT, and external banking partners.</p>
+        <ul class="pillar-bullets">
+          <li>Improve cross-team connections through unambiguous operational expectations and mutual ownership.</li>
+          <li>Provide regular constructive feedback loops and reduce operational rework to achieve higher first-time-right outcomes.</li>
+          <li>Align operational objectives across customer service desks, underwriters, and technical integrators.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="workflow-box">
+      <div class="workflow-title">OPERATIONAL CULTURE SHIFT: BASELINE VS. TARGET STATE</div>
+      <div class="workflow-content">
+        • Decision Authority: Centralized escalations ➔ Empowered frontline handlers guided by automated rule engines (TAT -40%)<br>
+        • Workload Management: Reactive overtime during peak spikes ➔ Continuous capacity monitoring & dynamic pod load balancing<br>
+        • Inter-team Handoffs: Fragmented blame on pending submissions ➔ Shared accountability, clear SLA contracts, and Bi-monthly POS tips
+      </div>
+    </div>
+    <div class="speaker-notes-box">
+      <strong>Speaker Notes:</strong> Our operations strategy rests on human capability. Without change resilience and sustainable workloads, large-scale automation projects fail to achieve operational adoption.
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide-card">
+    <div class="slide-accent"></div>
+    <div class="slide-meta">
+      <span><strong>SECTION 02</strong> · BAU PRIORITIES</span>
+      <span>AIA HONG KONG POS · SLIDE 03/18</span>
+    </div>
+    <h2 class="slide-title">BAU Modernization: Digital OTP Verification & Pending Revamp</h2>
+    <p class="slide-subtitle">Eliminating Signature Discrepancies and Clarifying Agent Communication Channels</p>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="metric-val">510 Chars</div><div class="metric-lbl">Pending Message Limit</div><div class="metric-sub">Up from 70 EN / 31 ZH (+628%)</div></div>
+      <div class="metric-box"><div class="metric-val">Dual EN/ZH</div><div class="metric-lbl">Language Support</div><div class="metric-sub">Separate 510-character buffers</div></div>
+      <div class="metric-box"><div class="metric-val">-60%</div><div class="metric-lbl">Signature Pendings</div><div class="metric-sub">OTP removes ink verification</div></div>
+      <div class="metric-box"><div class="metric-val">2027</div><div class="metric-lbl">Adoption Expansion</div><div class="metric-sub">Legal & Compliance review in progress</div></div>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-box">
+        <div class="pillar-kicker">Digital Authentication</div>
+        <div class="pillar-heading">iChange OTP Verification Enablement</div>
+        <p class="pillar-desc">Transitioning customer request authentication from manual signature verification to secure One-Time Password (OTP) verification.</p>
+        <ul class="pillar-bullets">
+          <li>Replaces error-prone signature verification with SMS/email OTP authentication on designated request types.</li>
+          <li>Drastically lowers signature discrepancy pending cases and accelerates customer straight-through turnaround.</li>
+          <li>Currently under active review with Legal & Compliance to expand eligible request types across 2027.</li>
+        </ul>
+      </div>
+      <div class="pillar-box">
+        <div class="pillar-kicker">Communication Clarity</div>
+        <div class="pillar-heading">Comprehensive Pending Message Revamp</div>
+        <p class="pillar-desc">Expanding message character limits from legacy 70 (EN) / 31 (ZH) characters to 510 separate characters for English and Chinese.</p>
+        <ul class="pillar-bullets">
+          <li>Eliminates cryptic abbreviations, split pending notices, duplicate messages, and obsolete alphanumeric codes.</li>
+          <li>Embeds clear, dual-language comprehensive requirement descriptions that agents understand on first read.</li>
+          <li>Directly reduces agent follow-up enquiries and back-and-forth clarifications, cutting case touch time.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="workflow-box">
+      <div class="workflow-title">STREAMLINED CUSTOMER REQUEST JOURNEY WITH OTP VERIFICATION</div>
+      <div class="workflow-content">
+        [01] Request Intake: Customer initiates alteration via iChange or AIA+ portal (Instant)<br>
+        [02] Dual-Factor OTP Auth: SMS/Email OTP dispatched; verified instantly without signature queue (&lt; 30 sec)<br>
+        [03] Automated Validation: POS rule engine validates request against policy ledger (Automated)<br>
+        [04] Clear Pending Dispatch: If exception occurs, 510-character dual-language explicit guidance dispatched immediately
+      </div>
+    </div>
+    <div class="speaker-notes-box">
+      <strong>Speaker Notes:</strong> Signature discrepancies represent one of our largest historical pending drivers. With OTP verification in iChange and 510-character clear dual-language pending messages, we cut rework at the root.
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide-card">
+    <div class="slide-accent"></div>
+    <div class="slide-meta">
+      <span><strong>SECTION 02</strong> · AUTOMATION PRIORITIES</span>
+      <span>AIA HONG KONG POS · SLIDE 04/18</span>
+    </div>
+    <h2 class="slide-title">Automation: IBM POS Modernization & Systems Integration</h2>
+    <p class="slide-subtitle">Deploying ~30 Core APIs and a Microservices Target Operating Model over a 26-Week Cadence</p>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="metric-val">~30 APIs</div><div class="metric-lbl">Integration Build</div><div class="metric-sub">Policy Admin · CRM · Data Platforms</div></div>
+      <div class="metric-box"><div class="metric-val">26 Weeks</div><div class="metric-lbl">Delivery Cadence</div><div class="metric-sub">Structured sprint release model</div></div>
+      <div class="metric-box"><div class="metric-val">60 Days</div><div class="metric-lbl">Post-Go-Live Support</div><div class="metric-sub">Hypercare performance tuning</div></div>
+      <div class="metric-box"><div class="metric-val">SIT/UAT/NFT</div><div class="metric-lbl">Test Artifacts</div><div class="metric-sub">Rigorous enterprise quality assurance</div></div>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-box">
+        <div class="pillar-kicker">Systems Integrator</div>
+        <div class="pillar-heading">End-to-End Architecture & Software Build</div>
+        <p class="pillar-desc">IBM engaged not merely for architectural advice, but as the accountable Systems Integrator delivering end-to-end software engineering.</p>
+        <ul class="pillar-bullets">
+          <li>Build and deployment of approximately 30 high-performance API integrations connecting core policy admin systems, CRM, and enterprise data platforms.</li>
+          <li>Transforms legacy monolithic policy administration into a modern, decoupled microservices Target Operating Model (TOM).</li>
+          <li>Unlocks high-throughput real-time data flows to power digital frontends (AIA+, iChange, Agent POSA).</li>
+        </ul>
+      </div>
+      <div class="pillar-box">
+        <div class="pillar-kicker">Engineering Delivery</div>
+        <div class="pillar-heading">26-Week Cadence & 60-Day Post-Go-Live Hypercare</div>
+        <p class="pillar-desc">Strict delivery discipline supported by complete verification artifacts and comprehensive operational warranty.</p>
+        <ul class="pillar-bullets">
+          <li>Complete formal test governance: System Integration Testing (SIT), User Acceptance Testing (UAT), and Non-Functional Testing (NFT).</li>
+          <li>Robust automated deployment pipelines and zero-downtime cutover procedures.</li>
+          <li>Dedicated 60-day post-implementation hypercare support to monitor transaction latency, throughput, and defect remediation.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="workflow-box">
+      <div class="workflow-title">TARGET MICROSERVICES ARCHITECTURE (IBM POS MODERNIZATION)</div>
+      <div class="workflow-content">
+        [Channel Layer] AIA+ / iChange / Agent POSA: Unified customer & agent digital endpoints sending JSON requests<br>
+        ➔ [API Management Layer] IBM Integration Bus: Rate limiting, OAuth token validation, routing (~30 APIs, &lt; 20ms)<br>
+        ➔ [Microservices Core] Containerized Services: Independent policy servicing domains (Ownership, Beneficiary, Contact, Premium)<br>
+        ➔ [Core Enterprise Legacy] Mainframe PAS & CRM: Decoupled legacy policy admin engines and data platforms
+      </div>
+    </div>
+    <div class="speaker-notes-box">
+      <strong>Speaker Notes:</strong> IBM is on the hook for concrete code delivery, not just high-level roadmaps. The ~30 APIs unlock straight-through processing for policy alterations, directly powering our digital customer journeys.
+    </div>
+  </div>
+
+  <!-- SLIDES 5 TO 18 CONDENSED VIEW FOR COMPLETE DECK COVERAGE -->
+  <div style="background: #FFFFFF; border: 1px solid var(--border-card); border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+    <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700; color: #0F172A; margin-bottom: 12px;">
+      Master Slide Summary: Slides 05 to 18 (Included in full in the .PPTX download & in-app viewer)
+    </h3>
+    <ul style="font-size: 12px; color: #334155; line-height: 1.8; list-style-position: inside;">
+      <li><strong>Slide 05: Governance Priority</strong> — GenAI Project on AML: Nice Actimize Name Screening (Target Q1 2027) & Multi-Phase EDD Modules (Dow Jones, IDV, SOW/SOF).</li>
+      <li><strong>Slide 06: Governance Priority</strong> — CRS 2.0 Regulatory Development (1 Jan 2027 Admin / 1 Jan 2028 Reporting) & Customer CRS Statement Workgroup.</li>
+      <li><strong>Slide 07: Governance Priority</strong> — IRD 700 Policy Audit Review Action, GIA Continuous Audits & Smart ID eKYC Integration.</li>
+      <li><strong>Slide 08: HNW Priority</strong> — Handler Readiness (TxH Training on Trusts & Assignments) & Expanding HNW Servicing Model to Agency Force.</li>
+      <li><strong>Slide 09: Business Partner Priority</strong> — One Stop Case Resolution Strategy (Dedicated Single POC) & 3-Year Agency Video Guides with AI Learning Assistant.</li>
+      <li><strong>Slide 10: Cashier Priority</strong> — 24/7 Virtual Cashier Kiosk (Cash Deposit Machine Terminal) Feasibility Study & Multi-Method Payment Acceptance.</li>
+      <li><strong>Slide 11: Payment Solutions Priority</strong> — Stablecoin Settlement Exploration & Accelerated Autopay Customer Journey (2 Months down to 2 Weeks via CitiDirect/FPS).</li>
+      <li><strong>Slide 12: Payment Solutions Priority</strong> — Project Bamboo AIAE-to-AIAI Transition & Strengthened Payment Risk AML Monitoring.</li>
+      <li><strong>Slide 13: Lessons Learned 1</strong> — Enhancement of Witness Signature Requirement & Launch of Bi-Monthly POS Tips for Agency Force.</li>
+      <li><strong>Slide 14: Lessons Learned 2</strong> — Product "SelectWise" In-Line Declaration for Existing Exclusions and Loadings (Zero Chasing).</li>
+      <li><strong>Slide 15: Lessons Learned 3</strong> — Change of Ownership Digital Leap: iChange-iVerify Linkage & POSA Auto-Population.</li>
+      <li><strong>Slide 16: Lessons Learned 4</strong> — Mandatory e-Advice Rollout, Customer Exception Management & ESG Carbon Reduction.</li>
+      <li><strong>Slide 17: Lessons Learned 5</strong> — IRD On-Site CRS Audit Inspection (700 Accounts) & MonQ HNW SLA Framework (1 June 2026).</li>
+      <li><strong>Slide 18: Lessons Learned 6</strong> — Citibank Lockbox Migration & Payment Infrastructure Modernization (WS_FTP to CitiDirect).</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

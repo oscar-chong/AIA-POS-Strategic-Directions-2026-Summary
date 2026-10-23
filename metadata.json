@@ -1,0 +1,6 @@
+{
+  "name": "AIA HK Policy Owner Services — Operations Strategy & Innovation Presentation",
+  "description": "Executive presentation suite and Google Slides integration for AIA Hong Kong Policy Owner Services (POS) operations strategy, functional priorities, and digital innovation milestones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
